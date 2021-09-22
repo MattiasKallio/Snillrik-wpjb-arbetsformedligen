@@ -1,0 +1,86 @@
+
+.snimp_table{
+	width: 100%;
+}
+.snimp_table tr:nth-child(even){
+	background-color: #e0e0e0;
+}
+
+.snimp_row{
+	display: flex;
+}
+.snimp_col{
+	flex-grow: 1;
+}
+.snimp_selectmain{
+	max-height: 200px;
+	overflow: auto;
+	transition: max-height 1s;
+}
+
+.snimp_selectmain.fullbox{
+	max-height:2500px;
+	transition: max-height 1s;
+}
+
+.snimp_selectbox{
+    color: #292929;
+    background: gainsboro;
+    padding: 2px 5px;
+    margin: 2px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.snimp_selected{
+    background: rgb(247, 142, 6);
+}
+
+.snimp-selected-infobox{
+	background: #343434;
+    color: white;
+    padding: 2px 10px 3px;
+    display: inline;
+    margin-right: 3px;
+    border-radius: 3px;
+}
+
+.snimp-loader{
+	display:none;
+    background: url(../assets/loader.gif);
+    width: 17px;
+    height: 17px;
+}
+
+
+.snimp-prettybutton{
+    background: #f78e06;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    border: 2px solid white;
+    box-shadow: 1px 1px 4px #0000002e;
+    color: white;
+    cursor: pointer;
+}
+.snimp-prettybutton:hover {
+    background: #e28001;
+}
+
+.snaf_disabled_color{
+    color: #c3c1c1;
+}
+#snillrik-wpjb-q{
+    padding: 6px;
+    width: 250px;
+}
+
+.snimp-searchbox{
+    background: gainsboro;
+    padding: 1px 20px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.snaf_first_td_block{
+    display:block;
+}

@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Snillrik wpjb AF import\n"
+"POT-Creation-Date: 2020-03-17 12:44+0100\n"
+"PO-Revision-Date: 2020-03-17 12:44+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.13\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: snillrik-wpjb-import.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/af-api.php:32
+msgid "Jobs saved"
+msgstr "Jobb sparade"
+
+#: classes/af-api.php:155
+msgid "Total"
+msgstr "Totalt"
+
+#: classes/af-api.php:156
+msgid "Previously imported"
+msgstr "Tidigare importerade"
+
+#: classes/af-api.php:265
+msgid "All the categories"
+msgstr "Alla kategorier"
+
+#: classes/af-api.php:266
+msgid ""
+"These are all the level 4 categories from Arbetsförmedlingen. Select the "
+"once you want and search within those categories. If you want to free "
+"search, simply select no categories."
+msgstr ""
+"Dessa är alla kategorierna från Arbetsförmedlingen. Välj de du vill och söka "
+"inom för att fritext-söka, välj helt enkelt inga kategorier."
+
+#: classes/af-api.php:269
+msgid "Nooo something went terrebly wrong!"
+msgstr "Aaargh, något gick fel, mycket fel. Ok, bara lite fel."
+
+#: classes/importpage.php:18
+msgid "Snillrik import page"
+msgstr "Snillrik import"
+
+#: classes/importpage.php:19
+msgid "Snillrik import"
+msgstr "Snillrik import"
+
+#: classes/importpage.php:34
+msgid "Show all categories"
+msgstr "Visa alla kategorier"
+
+#: classes/importpage.php:35
+msgid "Deselect all"
+msgstr "Välj inga kategorier"
+
+#: classes/importpage.php:36
+msgid "Save as favorites"
+msgstr "Spara som favoriter"
+
+#: classes/importpage.php:37
+msgid "Fetch jobs from selected categories"
+msgstr "Hämta jobb från de valda kategorierna"
+
+#: classes/importpage.php:39
+msgid "No categories selected"
+msgstr "Inga kategorier valda"
+
+#: classes/importpage.php:40
+msgid "Text search"
+msgstr "Text-sök"
+
+#: classes/importpage.php:41
+msgid "Get jobs"
+msgstr "Hämta jobb"
+
+#: classes/importpage.php:42
+msgid "Use * to search for parts of word*"
+msgstr "Använd * för att söka efter delar av ordet *"
+
+#: classes/importpage.php:48
+msgid "Change categories"
+msgstr "Ändra kategorier"
+
+#: classes/importpage.php:49
+msgid "Change all selected jobs categories to the one selected here."
+msgstr "Ändra alla valda jobbkategorier till den här."
+
+#: classes/importpage.php:51
+msgid "Change selected to"
+msgstr "Ändra valda till"
+
+#: classes/importpage.php:54
+msgid "Save to Job Board"
+msgstr "Spara till Job Board"
+
+#: classes/importpage.php:55
+msgid "Finally you are ready to save the jobs you have selected in the list."
+msgstr "Till slut är du redo att spara de jobb du har valt i listan."
+
+#: classes/importpage.php:56
+msgid "Save selected"
+msgstr "Spara valda jobb"
+
+#: classes/wpjb-db.php:28
+msgid "Added"
+msgstr "TIllagda"
+
+#: classes/wpjb-db.php:29
+msgid "Alredy added"
+msgstr "Redan tillagda"
+
+#: classes/wpjb-db.php:36
+msgid "No url is set for:"
+msgstr "Ingen url är satt för:"
+
+#: classes/wpjb-db.php:110
+msgid "No category set"
+msgstr "Ingen kategori vald"
+
+#: classes/wpjb-db.php:134
+msgid "Must have: "
+msgstr "Kvalifikationer du måste ha"
+
+#: classes/wpjb-db.php:142
+msgid "Nice to have: "
+msgstr "Kvalifikationer som är bra om du har."
+
+#: classes/wpjb-db.php:191
+msgid "No title: "
+msgstr "Ingen rubrik"
+
+#: classes/wpjb-db.php:242
+msgid "Change category"
+msgstr "Ändra kategori"
+
+#: settings.php:14
+msgid "Snillrik wpjb import Settings"
+msgstr "Snillrik wpjb importinställningar"
+
+#: settings.php:15
+msgid "SNIM Settings"
+msgstr "SNIM Inställningar"
+
+#: settings.php:51
+msgid ""
+"Below are some settings for connecting to Arbersförmedlingens API at <a href="
+"\"https://jobtechdev.se/docs/jobsearch/\">https://jobtechdev.se/docs/"
+"jobsearch/</a>"
+msgstr ""
+"Nedan är inställningar för anslutning till Arbersförmedlingens API på <a "
+"href=\"https://jobtechdev.se/docs/jobsearch/\">https://jobtechdev.se/docs/"
+"jobsearch/</a>"
+
+#: settings.php:61
+msgid "Token for Arbetsförmedlingen API"
+msgstr "Token för Arbetsförmedlingen API"
+
+#: settings.php:66
+msgid "Email that is used for contact if no email is set in fetched info."
+msgstr ""
+"E-post som används för kontakt om ingen e-post är inställd i den hämtade "
+"information."
+
+#. Plugin Name of the plugin/theme
+msgid "Snillrik wpjb AF import"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://snillrik.se"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"An importer plugin for wpjoboard for importning jobs from swedish "
+"Arbetsförmedlingen"
+msgstr "Ett plugin som importerar jobb från Arbetsförmedlingens API."
+
+#. Author of the plugin/theme
+msgid "Mattias Kallio"
+msgstr ""
+
+#~ msgid " at "
+#~ msgstr " på "
+
+#~ msgid "Get jobs from selected categories"
+#~ msgstr "Hämta jobb från de valda kategorierna"

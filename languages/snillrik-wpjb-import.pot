@@ -1,0 +1,128 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Snillrik wpjb AF import\n"
+"POT-Creation-Date: 2020-03-05 12:52+0100\n"
+"PO-Revision-Date: 2020-03-05 12:52+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.13\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: snillrik-wpjb-import.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/af-api.php:30
+msgid "Jobs saved"
+msgstr ""
+
+#: classes/af-api.php:127
+msgid "Total"
+msgstr ""
+
+#: classes/af-api.php:127
+msgid "Previously imported"
+msgstr ""
+
+#: classes/af-api.php:183
+msgid "All the categories"
+msgstr ""
+
+#: classes/importpage.php:18
+msgid "Snillrik import page"
+msgstr ""
+
+#: classes/importpage.php:19
+msgid "Snillrik import"
+msgstr ""
+
+#: classes/importpage.php:32
+msgid "Show all categories"
+msgstr ""
+
+#: classes/importpage.php:33
+msgid "Deselect all"
+msgstr ""
+
+#: classes/importpage.php:34
+msgid "Save as favorites"
+msgstr ""
+
+#: classes/importpage.php:36
+msgid "Fetch jobs from selected categories"
+msgstr ""
+
+#: classes/importpage.php:37
+msgid "No categories selected"
+msgstr ""
+
+#: classes/importpage.php:39
+msgid "Get jobs from selected categories"
+msgstr ""
+
+#: classes/importpage.php:43
+msgid "Save selected"
+msgstr ""
+
+#: classes/wpjb-db.php:28
+msgid "Added"
+msgstr ""
+
+#: classes/wpjb-db.php:29
+msgid "Alredy added"
+msgstr ""
+
+#: classes/wpjb-db.php:127
+msgid "Must have: "
+msgstr ""
+
+#: classes/wpjb-db.php:135
+msgid "Nice to have: "
+msgstr ""
+
+#: classes/wpjb-db.php:147
+msgid " at "
+msgstr ""
+
+#: classes/wpjb-db.php:175
+msgid "No title: "
+msgstr ""
+
+#: classes/wpjb-db.php:226
+msgid "Change category"
+msgstr ""
+
+#: settings.php:14
+msgid "Snillrik wpjb import Settings"
+msgstr ""
+
+#: settings.php:15
+msgid "SNIM Settings"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Snillrik wpjb AF import"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://snillrik.se"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"An importer plugin for wpjoboard for importning jobs from swedish "
+"Arbetsförmedlingen"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Mattias Kallio"
+msgstr ""
