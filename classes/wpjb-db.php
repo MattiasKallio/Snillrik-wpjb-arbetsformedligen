@@ -16,7 +16,7 @@ class SNAF_WPJBDB
 
     public function save2WBJB($annons, $selected_cat)
     {
-        
+
         $error_info = "";
         if (isset($annons->headline) && $annons->headline != "") {
             global $wpdb;
@@ -42,7 +42,7 @@ class SNAF_WPJBDB
             );
 
             $post_id = wp_insert_post($args_post);
-            
+
             // Insert into job
             if (is_numeric($post_id) && $post_id != 0) {
                 $wppost = get_post($post_id);
@@ -54,11 +54,11 @@ class SNAF_WPJBDB
                     'job_title' => $wppost->post_title,
                     'job_slug' => $wppost->post_name,
                     'job_description' => $annons->headline
-                    . "\n" . $annons->description->text
-                    . "\n" . $annons->workplace_address->region
-                    . "\n" . $annons->workplace_address->municipality
-                    . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label
-                    . "\n",
+                        . "\n" . $annons->description->text
+                        . "\n" . $annons->workplace_address->region
+                        . "\n" . $annons->workplace_address->municipality
+                        . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label
+                        . "\n",
                     'job_created_at' => $annons->publication_date,
                     'job_expires_at' => $annons->application_deadline,
                     'job_zip_code' => $annons->workplace_address->municipality == "" ? "n/a" : $annons->workplace_address->municipality,
@@ -81,10 +81,10 @@ class SNAF_WPJBDB
                     "job_id" => $wpjob_id,
                     "title" => $annons->headline,
                     "description" => $annons->headline
-                    . "\n" . (isset($annons->description->text_formatted) && $annons->description->text_formatted != "" ? $annons->description->text_formatted : $annons->description->text)
-                    . "\n" . $annons->workplace_address->region
-                    . "\n" . $annons->workplace_address->municipality
-                    . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label . "\n", // ,
+                        . "\n" . (isset($annons->description->text_formatted) && $annons->description->text_formatted != "" ? $annons->description->text_formatted : $annons->description->text)
+                        . "\n" . $annons->workplace_address->region
+                        . "\n" . $annons->workplace_address->municipality
+                        . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label . "\n", // ,
                     "company" => $annons->employer->name,
                     "location" => $annons->workplace_address->municipality,
                 ));
@@ -102,7 +102,6 @@ class SNAF_WPJBDB
                             'object' => "job",
                             'object_id' => $wpjob_id,
                         ));
-
                     } else {
                         __("No category set", 'snillrik-wpjb-import');
                     }
@@ -149,10 +148,10 @@ class SNAF_WPJBDB
                 $metas["url_till_jobb"] = strpos($metas["url_till_jobb"], "http") === false ? "//" . $metas["url_till_jobb"] : $metas["url_till_jobb"]; */
                 $metas = []; // no extra fields.
 
-                
+
                 //do_action("snjb_import_metas_before_insert",$metas, $annons);
-                $metas = apply_filters("snjb_import_metas_before_insert",$metas, $annons);
-                
+                $metas = apply_filters("snjb_import_metas_before_insert", $metas, $annons);
+
                 foreach ($metas as $key => $value) {
                     $meta_arr = SNAF_WPJBDB::getMetaByStr($key, "job");
                     $meta = $meta_arr[0];
@@ -197,12 +196,12 @@ class SNAF_WPJBDB
 
         return $tag;
     }
-/**
- * Get tags by type
- *
- * @param string $tagtitle
- * @return object|NULL
- */
+    /**
+     * Get tags by type
+     *
+     * @param string $tagtitle
+     * @return object|NULL
+     */
     public static function getTagsByType($tagtype, $to_options = true)
     {
         global $wpdb;
@@ -220,7 +219,7 @@ class SNAF_WPJBDB
         return $tags;
     }
 
-    public static function getSelectedOptionTag($tagtype, $selcted="")
+    public static function getSelectedOptionTag($tagtype, $selcted = "")
     {
         $current_tags = get_transient("snaf_currenttags");
         $return_str = "<option id=0>" . __("Change category", 'snillrik-wpjb-import') . "</option>";
@@ -236,13 +235,13 @@ class SNAF_WPJBDB
         return $return_str;
     }
 
-/**
- * Get all meta by and type
- *
- * @param string $metaname
- * @param string $type
- * @return object|NULL
- */
+    /**
+     * Get all meta by and type
+     *
+     * @param string $metaname
+     * @param string $type
+     * @return object|NULL
+     */
     public static function getMetasByType($type = "")
     {
         global $wpdb;
@@ -253,13 +252,13 @@ class SNAF_WPJBDB
         return $meta;
     }
 
-/**
- * Get meta by string and type
- *
- * @param string $metaname
- * @param string $type
- * @return object|NULL
- */
+    /**
+     * Get meta by string and type
+     *
+     * @param string $metaname
+     * @param string $type
+     * @return object|NULL
+     */
     public static function getMetaByStr($metaname, $type = "")
     {
         global $wpdb;
@@ -270,9 +269,9 @@ class SNAF_WPJBDB
         return $meta;
     }
 
-/**
- * Save meta
- */
+    /**
+     * Save meta
+     */
     public static function insert_wpjb_meta($args)
     {
         global $wpdb;
@@ -291,12 +290,11 @@ class SNAF_WPJBDB
         } else {
             return "error: " . "pr:" . print_r($table_name, true) . "pr:" . print_r($insert_array, true) . $wpdb->print_error();
         }
-
     }
 
-/**
- * Save tag
- */
+    /**
+     * Save tag
+     */
     public static function insert_wpjb_tag($args)
     {
         global $wpdb;
@@ -314,11 +312,10 @@ class SNAF_WPJBDB
             return true;
         } else {
             return "error: "
-            . "table:" . print_r($table_name, true)
-            . "inserts:" . print_r($insert_array, true)
-            . $wpdb->print_error();
+                . "table:" . print_r($table_name, true)
+                . "inserts:" . print_r($insert_array, true)
+                . $wpdb->print_error();
         }
-
     }
 
     public function delete_expired_jobs()
@@ -327,7 +324,7 @@ class SNAF_WPJBDB
         $to_date = isset($_POST["todate"]) ? sanitize_text_field($_POST["todate"]) : false;
         global $wpdb;
 
-        if(!$to_date){
+        if (!$to_date) {
             echo wp_send_json(
                 array("result" => 'error')
             );
@@ -339,10 +336,10 @@ class SNAF_WPJBDB
         $sql = "SELECT ID as id FROM " . $wpdb->prefix . "wpjb_job WHERE job_expires_at <= '$to_date' ORDER BY job_expires_at DESC LIMIT 100";
         $jobs = $wpdb->get_results($sql);
         $jobs_str = "";
-        $jobids = array("first"=>0, "last"=>0);
+        $jobids = array("first" => 0, "last" => 0);
         foreach ($jobs as $job) {
             $job_id = $job->id;
-            if($jobids["first"]==0)
+            if ($jobids["first"] == 0)
                 $jobids["first"] = $job_id;
             $jobids["last"] = $job_id;
             $jbb_job = new Wpjb_Model_Job($job_id);
@@ -354,12 +351,10 @@ class SNAF_WPJBDB
         echo wp_send_json(
             array(
                 "result" => count($jobs) == 0 ? 'done' : 'go',
-                "info" =>$jobids["first"]."-".$jobids["last"]."(".count($jobs).")"
+                "info" => $jobids["first"] . "-" . $jobids["last"] . "(" . count($jobs) . ")"
             )
         );
 
         wp_die();
-
     }
-
 }

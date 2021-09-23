@@ -88,8 +88,8 @@ class SNAF_API
         $strout = "";
 
         $total = isset($body_array->total->value) && $body_array->total->value > 0
-        ? $body_array->total->value
-        : "<h4>Inga jobba hittade</h4>";
+            ? $body_array->total->value
+            : "<h4>Inga jobba hittade</h4>";
         $added_job_array = get_transient("snaf_importedjobs");
         $prev_imported = 0;
         $strout .= "
@@ -151,7 +151,6 @@ class SNAF_API
                 <td>" . $salary_type . " $application_details</td>
 
             </tr>";
-
         }
         $pages_str = "";
         for ($pages = 0; $pages < $total && $pages < 2000; $pages += 50) {
@@ -181,7 +180,7 @@ class SNAF_API
     /**
      * To fetch all occupations use the one below.
      */
-/*     public function get_jobtypes()
+    /*     public function get_jobtypes()
 {
 $APItoken = get_option("snillrik_wpjb_token");
 $typelevel = "ssyk-level-4";
@@ -274,5 +273,4 @@ return "<h1>" . __("All the categories", 'snillrik-wpjb-import') . "</h1>
             return __("Nooo something went terrebly wrong!");
         }
     }
-
 }

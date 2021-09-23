@@ -51,7 +51,7 @@ class SNAF_Settings
 	<h2>Snillrik import to WPJB</h2>
     <p>" . __('Below are some settings for connecting to Arbersförmedlingens API at <a href="https://jobtechdev.se/docs/jobsearch/">https://jobtechdev.se/docs/jobsearch/</a>', 'snillrik-wpjb-import') . "</p>";
         //$metas_chart = "";
-/*         if ($metas_chart != "") {
+        /*         if ($metas_chart != "") {
             echo "<div><h3>Match theese with the stuff from AF. TODO</h3>" . $metas_chart . "</div>";
         } */
         echo "<div class='wpaf_leftside'>
@@ -90,8 +90,7 @@ function my_metas_hands_off($metas, $annons)
         echo "<div id='delete_info'>
             <h4>Delete info</h4>
         </div>";
-/*         $expired_jobs = SNAF_WPJBDB::delete_expired_jobs();
+        /*         $expired_jobs = SNAF_WPJBDB::delete_expired_jobs();
         print_r($expired_jobs); */
-
     }
 }

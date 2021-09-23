@@ -27,19 +27,21 @@ new SNAF_API();
 /**
  * Adding scripts
  */
-function snillrik_maps_add_admin_scripts(){
-    wp_enqueue_style('snillrik-imp-admin-main', SNIMP_PLUGIN_URL . 'css/main.css');
-    wp_enqueue_script('snillrik-imp-admin-script', SNIMP_PLUGIN_URL . 'js/snillrik_wpjb_af_import-main.js', array('jquery'));
-    wp_localize_script('snillrik-imp-admin-script', 'snillrik_impadmin', array(
-        'ajaxurl' => admin_url('admin-ajax.php')
-    ));
+function snillrik_maps_add_admin_scripts()
+{
+  wp_enqueue_style('snillrik-imp-admin-main', SNIMP_PLUGIN_URL . 'css/main.css');
+  wp_enqueue_script('snillrik-imp-admin-script', SNIMP_PLUGIN_URL . 'js/snillrik_wpjb_af_import-main.js', array('jquery'));
+  wp_localize_script('snillrik-imp-admin-script', 'snillrik_impadmin', array(
+    'ajaxurl' => admin_url('admin-ajax.php')
+  ));
 }
 add_action('admin_enqueue_scripts', 'snillrik_maps_add_admin_scripts');
 
 /**
  * Load plugin textdomain.
  */
-function wpdocs_load_textdomain() {
-  load_plugin_textdomain( 'snillrik-wpjb-import', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+function wpdocs_load_textdomain()
+{
+  load_plugin_textdomain('snillrik-wpjb-import', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
-add_action( 'init', 'wpdocs_load_textdomain' );
+add_action('init', 'wpdocs_load_textdomain');
