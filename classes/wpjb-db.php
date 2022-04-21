@@ -14,7 +14,7 @@ class SNAF_WPJBDB
 
     }
 
-    public function save2WBJB($annons, $selected_cat)
+    public static function save2WBJB($annons, $selected_cat)
     {
 
         $error_info = "";
@@ -22,7 +22,7 @@ class SNAF_WPJBDB
             global $wpdb;
 
             $added_job_array = get_transient("snaf_importedjobs");
-            if (in_array($annons->id, $added_job_array)) {
+            if (is_array($added_job_array) && in_array($annons->id, $added_job_array)) {
                 return array(
                     "respons" => __("Added", 'snillrik-wpjb-import'),
                     "error" => __("Alredy added", 'snillrik-wpjb-import'),
@@ -57,7 +57,7 @@ class SNAF_WPJBDB
                         . "\n" . $annons->description->text
                         . "\n" . $annons->workplace_address->region
                         . "\n" . $annons->workplace_address->municipality
-                        . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label
+                        . "\n" . (isset($annons->employment_type->duration) ? $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label : "")
                         . "\n",
                     'job_created_at' => $annons->publication_date,
                     'job_expires_at' => $annons->application_deadline,
@@ -84,7 +84,7 @@ class SNAF_WPJBDB
                         . "\n" . (isset($annons->description->text_formatted) && $annons->description->text_formatted != "" ? $annons->description->text_formatted : $annons->description->text)
                         . "\n" . $annons->workplace_address->region
                         . "\n" . $annons->workplace_address->municipality
-                        . "\n" . $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label . "\n", // ,
+                        . "\n" . (isset($annons->employment_type->duration) ? $annons->employment_type->duration->label . " " . $annons->working_hours_type->duration->label . "\n" : ""), // ,
                     "company" => $annons->employer->name,
                     "location" => $annons->workplace_address->municipality,
                 ));
@@ -96,7 +96,7 @@ class SNAF_WPJBDB
                 $categories_list = explode("|", $the_cat);
                 foreach ($categories_list as $catname) {
                     $category = SNAF_WPJBDB::getTagByStr($catname);
-                    if ($catname != "") {
+                    if ($catname != "" && isset($category[0]->id)) {
                         SNAF_WPJBDB::insert_wpjb_tag(array(
                             'tag_id' => $category[0]->id,
                             'object' => "job",
@@ -111,12 +111,14 @@ class SNAF_WPJBDB
                 foreach ($types_list as $typen) {
 
                     $type_arr = SNAF_WPJBDB::getTagByStr($typen);
-                    $type = $type_arr[0];
-                    SNAF_WPJBDB::insert_wpjb_tag(array(
-                        'tag_id' => $type->id,
-                        'object' => "job",
-                        'object_id' => $wpjob_id,
-                    ));
+                    $type = isset($type_arr[0]) ? $type_arr[0]->id : false;
+                    if ($type && isset($type->id)) {
+                        SNAF_WPJBDB::insert_wpjb_tag(array(
+                            'tag_id' => $type->id,
+                            'object' => "job",
+                            'object_id' => $wpjob_id,
+                        ));
+                    }
                 }
                 // Custom meta spara.
                 /* If you want to add info from AF to custom meta fields.
@@ -299,7 +301,11 @@ class SNAF_WPJBDB
     {
         global $wpdb;
         $table_name = $wpdb->prefix . "wpjb_tagged";
+        $worked = true;
 
+        if (!isset($args["tag_id"])) {
+            return "error: no tag set";
+        }
         $insert_array = array(
             'tag_id' => $args["tag_id"],
             'object' => $args["object"],
@@ -318,7 +324,7 @@ class SNAF_WPJBDB
         }
     }
 
-    public function delete_expired_jobs()
+    public static function delete_expired_jobs()
     {
 
         $to_date = isset($_POST["todate"]) ? sanitize_text_field($_POST["todate"]) : false;

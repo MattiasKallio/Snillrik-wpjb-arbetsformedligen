@@ -43,7 +43,7 @@ class SNAF_Settings
         $metas_chart = "";
         foreach ($meta_arr as $meta) {
             $values = unserialize($meta->meta_value);
-            if (!$values["is_trashed"] && $values["title"] != "") {
+            if (isset($values["is_trashed"]) && !$values["is_trashed"] && $values["title"] != "") {
                 $metas_chart .= "<div class=''><strong>" . $values["title"] . "</strong>: " . $values["name"] . "</div>";
             }
         }

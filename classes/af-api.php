@@ -71,8 +71,8 @@ class SNAF_API
                 )
             );
             $body_array = isset($response["body"]) ? json_decode($response["body"]) : false;
-
-            if (count($body_array->errors) == 0) {
+            //error_log("AF API response: " . print_r($body_array, true));
+            if (!isset($body_array->errors) || count($body_array->errors) == 0) {
                 set_transient('snaf_jobs' . implode("-", $occupations) . $search_string . $offset, $body_array, 86400);
             } else {
                 echo wp_send_json(
@@ -123,7 +123,7 @@ class SNAF_API
             $occuspec = $job->occupation->label;
 
             $categories_options_str = SNAF_WPJBDB::getSelectedOptionTag("category", $occuspec);
-            $alredy_imported = in_array($jobid, $added_job_array);
+            $alredy_imported = is_array($added_job_array) ? in_array($jobid, $added_job_array) : false;
             if ($alredy_imported) {
                 $prev_imported++;
             }
